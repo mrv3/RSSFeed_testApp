@@ -63,7 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.desctxt.setText(desc.substring(0,130));
         holder.dateTxt.setText(date);
 
-      //  holder.currentItem = items.get(position);
+      // // holder.currentItem = items.get(position);
         PicassoClient.downloadImage(c,imageUrl,holder.img);
 
         holder.titleTxt.setOnClickListener(new View.OnClickListener() {
