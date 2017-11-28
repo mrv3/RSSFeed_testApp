@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
       // // holder.currentItem = items.get(position);
         PicassoClient.downloadImage(c,imageUrl,holder.img);
 
-        holder.titleTxt.setOnClickListener(new View.OnClickListener() {
+   /*     holder.titleTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //implement onClick
@@ -82,13 +83,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 i.setData(Uri.parse(article.getWeblink()));
                 c.startActivity(i);
             }
-        });
+        });*/
 
 
         holder.share.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 /// button click event
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/html");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Read " + article.getTitle() + "via the Zuke App or " + "read more here at: " + article.getWeblink());
+                c.startActivity(Intent.createChooser(sharingIntent,"Share with"));
+
                 Toast.makeText(c, "share", Toast.LENGTH_LONG).show();
             }
         });
@@ -97,7 +103,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             @Override
             public void onClick(View v) {
                 /// button click event
-                Toast.makeText(c, article.getWeblink(), Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(article.getWeblink()));
+                c.startActivity(i);
+
+
+                //Toast.makeText(c, article.getWeblink(), Toast.LENGTH_LONG).show();
             }
         });
     }
