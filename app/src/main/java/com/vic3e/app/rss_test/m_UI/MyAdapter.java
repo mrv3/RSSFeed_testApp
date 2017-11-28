@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.vic3e.app.rss_test.R;
@@ -32,13 +33,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private CardView cardView;
 
+  //  Button readmore;
+
     public MyAdapter(Context c, ArrayList<Article> articles) {
         this.c = c;
         this.articles = articles;
+     //   this.readmore = (Button)view.findViewById(R.id.readMore);
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(c).inflate(R.layout.model,parent,false);
+        View v= LayoutInflater.from(c).inflate(R.layout.model_two,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -61,7 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         String imageUrl=article.getImageUrl();//.replace("localhost","10.0.2.2");
         holder.titleTxt.setText(title);
         holder.desctxt.setText(desc.substring(0,130));
-        holder.dateTxt.setText(date);
+        holder.dateTxt.setText(date.substring(0,18));//(date);
 
       // // holder.currentItem = items.get(position);
         PicassoClient.downloadImage(c,imageUrl,holder.img);
@@ -76,6 +80,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(article.getWeblink()));
                 c.startActivity(i);
+            }
+        });
+
+        holder.readmore1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                /// button click event
+                Toast.makeText(c, "yes" + article.getWeblink(), Toast.LENGTH_LONG).show();
             }
         });
     }
