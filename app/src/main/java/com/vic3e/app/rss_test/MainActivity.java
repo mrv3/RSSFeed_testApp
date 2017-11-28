@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             final RecyclerView rv= (RecyclerView) findViewById(R.id.rv);
             rv.setLayoutManager(new LinearLayoutManager(this));
+            new Downloader(MainActivity.this,urlAddress,rv).execute();
+
+
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
