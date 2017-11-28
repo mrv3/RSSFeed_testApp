@@ -1,5 +1,6 @@
 package com.vic3e.app.rss_test;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,12 +18,17 @@ import com.vic3e.app.rss_test.m_RSS.Downloader;
 
 public class MainActivity extends AppCompatActivity {
 
+    ProgressDialog pd;
+
         //final static String urlAddress="http://10.0.2.2/galacticnews/index.php/feed";
-        final static String urlAddress="https://opeoluvictory.wixsite.com/blogtest/feed.xml";
+       // final static String urlAddress="https://opeoluvictory.wixsite.com/blogtest/feed.xml";
+       final static String urlAddress="http://www.rssmix.com/u/8265148/rss.xml";
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+            pd = null;
+
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -35,5 +41,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+
+        if (pd != null) {
+            pd.dismiss();
+            pd = null;
+        }
+
     }
+
+
+    @Override
+    public void onPause(){
+
+        super.onPause();
+        if(pd != null)
+            pd.dismiss();
+    }
+
+
+    @Override
+    public  void onDestroy() {
+        super.onDestroy();
+        if(pd != null)
+            pd.dismiss();
+    }
+    }
+
+
 

@@ -91,9 +91,11 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
                             }else if(tagName.equalsIgnoreCase("description"))
                             {
                                 String desc=tagValue;
-                                article.setDescription(desc);//.substring(desc.indexOf("/>")+2));
+                               // article.setDescription(desc);//.substring(desc.indexOf("/>")+2));
+                                article.setDescription(desc);//.substring(desc.indexOf("src")));
                                 //EXTRACT IMAGE FROM DESC
-                                String imageUrl=desc.substring(desc.indexOf("src=")+5,desc.indexOf("jpg")+3);
+                                String imageUrl= desc.substring(desc.indexOf("src=")+5,desc.indexOf("/>")-1);
+                                //String imageUrl= desc.substring(desc.indexOf("src=")+5,desc.indexOf("jpg")+3);
                                 article.setImageUrl(imageUrl);
                             }else if(tagName.equalsIgnoreCase("pubDate"))
                             {

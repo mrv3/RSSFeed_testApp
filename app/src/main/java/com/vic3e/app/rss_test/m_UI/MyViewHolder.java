@@ -17,12 +17,12 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     TextView titleTxt,desctxt,dateTxt;
     ImageView img;
-    Button readmore1;
+    Button readmore1, share;
     //public View cardView;
    // private CardView cardView;
     public View cardView;
     public View readmore;
-    public View share;
+   // public View share;
 
     public MyViewHolder(View itemView) {
         super(itemView);

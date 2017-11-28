@@ -43,6 +43,7 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
         pd.dismiss();
         if(data.toString().startsWith("Error"))
         {
+
             Toast.makeText(c, data.toString(), Toast.LENGTH_SHORT).show();
         }else {
             //PARSE
@@ -71,4 +72,6 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
             return ErrorTracker.IO_EROR;
         }
     }
+
+
 }

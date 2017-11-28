@@ -64,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         String weblink =article.getWeblink();
         String imageUrl=article.getImageUrl();//.replace("localhost","10.0.2.2");
         holder.titleTxt.setText(title);
-        holder.desctxt.setText(desc.substring(0,130));
+        holder.desctxt.setText(desc.substring(0,200) + "" + "...");
         holder.dateTxt.setText(date.substring(0,18));//(date);
 
       // // holder.currentItem = items.get(position);
@@ -75,7 +75,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             public void onClick(View v) {
                 //implement onClick
                 System.out.println("Clicked");
-                Toast.makeText(c, "" + article.getWeblink(), Toast.LENGTH_LONG).show();
+             //   Toast.makeText(c, "" + article.getWeblink(), Toast.LENGTH_LONG).show();
+                Toast.makeText(c, "" + article.getImageUrl(), Toast.LENGTH_LONG).show();
 
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(article.getWeblink()));

@@ -17,18 +17,18 @@ public class PicassoClient {
         if (imageUrl != null && imageUrl.length()>0){
 
             Picasso.with(c).load(imageUrl)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.color.cardview_dark_background)
                     .resize(300,300)
-                    .onlyScaleDown()
-                    //.centerInside()
+                    //.onlyScaleDown()
+                    .centerInside()
                     .into(img);
         } else {
             Picasso.with(c)
-                    .load(R.drawable.ic_launcher_background)
+                    .load(R.color.cardview_dark_background)
                     .resize(50,50)
-                   // .centerInside()
-                    .onlyScaleDown()
-                    .fit()
+                    .centerInside()
+                   // .onlyScaleDown()
+                   // .fit()
                     .into(img);
         }
     }
