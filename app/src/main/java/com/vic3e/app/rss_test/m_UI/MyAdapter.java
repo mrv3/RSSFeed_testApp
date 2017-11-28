@@ -83,11 +83,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             }
         });
 
+
+        holder.share.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                /// button click event
+                Toast.makeText(c, "share", Toast.LENGTH_LONG).show();
+            }
+        });
+
         holder.readmore1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 /// button click event
-                Toast.makeText(c, "yes" + article.getWeblink(), Toast.LENGTH_LONG).show();
+                Toast.makeText(c, article.getWeblink(), Toast.LENGTH_LONG).show();
             }
         });
     }

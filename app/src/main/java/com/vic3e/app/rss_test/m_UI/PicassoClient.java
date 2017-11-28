@@ -18,12 +18,17 @@ public class PicassoClient {
 
             Picasso.with(c).load(imageUrl)
                     .placeholder(R.drawable.ic_launcher_background)
-                    .resize(150,150)
+                    .resize(300,300)
+                    .onlyScaleDown()
+                    //.centerInside()
                     .into(img);
         } else {
             Picasso.with(c)
                     .load(R.drawable.ic_launcher_background)
                     .resize(50,50)
+                   // .centerInside()
+                    .onlyScaleDown()
+                    .fit()
                     .into(img);
         }
     }

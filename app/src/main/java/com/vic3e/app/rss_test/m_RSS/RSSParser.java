@@ -103,9 +103,6 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
                                 article.setWeblink(tagValue);
                             }
 
-
-
-
                         }
                         if(tagName.equalsIgnoreCase("item"))
                         {

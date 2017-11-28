@@ -22,6 +22,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
    // private CardView cardView;
     public View cardView;
     public View readmore;
+    public View share;
 
     public MyViewHolder(View itemView) {
         super(itemView);
@@ -30,5 +31,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         dateTxt= (TextView) itemView.findViewById(R.id.dateTxt);
         img= (ImageView) itemView.findViewById(R.id.articleImage);
         readmore1 = (Button)itemView.findViewById(R.id.readMore);
+        share = (Button)itemView.findViewById(R.id.share);
     }
 }
